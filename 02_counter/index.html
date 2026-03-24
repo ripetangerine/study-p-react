@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>02_counter</title>
     <style>
-
+        #counter{
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 가로 */
+            align-items: center;    /* 세로 */
+            height: 100vh; 
+        }
+        .clickBtn{
+            flex-direction: row;
+        }
     </style>
 </head>
 <body>
-    <h1 id="result">0</h1>
-    <button class="plusBtn" onclick="plus()">+</button>
-    <button onclick="minus()">-</button>
+    <div id="counter">
+        <h1 id="result">0</h1>
+        <div class="clickBtn">
+            <button onclick="plus()">+</button>
+            <button onclick="plus(+2)">++</button>
+            <button onclick="plus(-1)">-</button>
+        </div>
+    </div>
     <script src="./main.js"></script>
 </body>
 </html>

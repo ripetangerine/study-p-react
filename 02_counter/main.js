@@ -38,12 +38,17 @@ const plusButton = document.getElementsByTagName("button")[0];
 // arrow함수를 (함수정의)() < 이런식으로 하면 호출됌
 
 
-function plus(){
-    count++;
-    resultH1.innerHTML = count;
-}
+// function plus(){
+//     count++;
+//     resultH1.innerHTML = count;
+// }
 
-function minus(){
-    count--;
+// function minus(){
+//     count--;
+//     resultH1.innerHTML = count;
+// }
+
+function plus(number = 1){
+    count += number;
     resultH1.innerHTML = count;
 }
