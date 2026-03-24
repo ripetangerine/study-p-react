@@ -25,10 +25,10 @@ let count = 0;
 const plusButton = document.getElementsByTagName("button")[0];
 // const
 
-plusButton.addEventListener("click", ()=>{ // addEventListener("click", 함수명) < 함수를 직접 호출하면 안됌
-    count ++;
-    resultH1.innerHTML = count;
-})
+// plusButton.addEventListener("click", ()=>{ // addEventListener("click", 함수명) < 함수를 직접 호출하면 안됌
+//     count ++;
+//     resultH1.innerHTML = count;
+// })
 
 // plusButton.onclick = () =>{
 //     count ++;
@@ -36,3 +36,14 @@ plusButton.addEventListener("click", ()=>{ // addEventListener("click", 함수�
 // }
 
 // arrow함수를 (함수정의)() < 이런식으로 하면 호출됌
+
+
+function plus(){
+    count++;
+    resultH1.innerHTML = count;
+}
+
+function minus(){
+    count--;
+    resultH1.innerHTML = count;
+}
