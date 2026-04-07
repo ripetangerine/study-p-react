@@ -59,4 +59,5 @@
 
 .todo__item--complete .todo__label{
     text-decoration: line-through;
+    color: #999;
 } 
