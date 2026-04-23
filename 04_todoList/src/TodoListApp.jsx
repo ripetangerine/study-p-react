@@ -40,18 +40,17 @@ function TodoListApp() {
     }
 
     function deleteTodo(id){
-        // todos를 하나씩 todo꺼내서 
+        // todos를 하나씩 todo꺼내서 해당 id가 아닌 다른 배열을 새로 만들어서 할당 
         setTodos((todos)=>{
-
+            todos.filter((todo)=>todo.id!==id);
         });
     }
 
     return (
         <div className="todo">
-
             <TodoHeader/>
             <TodoAdder addTodo={addTodo}/>
-            <TodoList todos={todos} toggleTodo={toggleTodo}/>
+            <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
         </div>
     )
 }
