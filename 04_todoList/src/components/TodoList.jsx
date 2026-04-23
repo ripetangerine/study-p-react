@@ -1,14 +1,14 @@
 import TodoItemEmpty from "./TodoItemEmpty.jsx"
 import TodoItem from "./TodoItem.jsx"
-export default function TodoList({todos}){
+export default function TodoList({todos, toggleTodo}){
     return(
         <ul className="todo__list">
-            {/* todos가 없으면, todoItemEmptys */}
+            {/*todos가 비어있으면 TodoItemEmpty 보여주고, 아니면 TodoItem 보여주기 */}
             {todos.length===0 && <TodoItemEmpty/>}
-
-            {/* todos가 있으면, todoItems에 todos */}
-            {todos.length>0 &&
-                todos.map((v, i)=><TodoItem key={i} todo={v}/>)}
+            {todos.length> 0 &&
+            //todos에서 하나씩 꺼내서 todo -> <TodoItem todo={todo}/>로 보내기
+            todos.map((todo)=> <TodoItem key = {todo.id}todo = {todo} toggleTodo={toggleTodo}/>)  //Each child in a list should have a unique "key" prop.-> 리스트의 각 아이는 key 속성을 갖고 있어야 한다.
+            }
         </ul>
     )
 }
