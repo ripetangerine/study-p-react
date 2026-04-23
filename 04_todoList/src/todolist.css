@@ -56,6 +56,10 @@
 
 }
 
+.todo__input--edit{
+    flex-grow: 1;
+}
+
 .todo__button--delete, .todo__button--edit{
     font-size:0.8em;
 }
@@ -66,3 +70,4 @@
 }
 /*  a>b : a 바로 아래 자식 b
     a b : a 아래 자손 b  */
+
