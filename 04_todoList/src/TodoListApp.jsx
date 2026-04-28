@@ -1,5 +1,5 @@
 import "./todolist.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TodoHeader from "./components/TodoHeader.jsx" //import 추가 안했어서 오류 났었음!!
 import TodoAdder from "./components/TodoAdder.jsx" 
 import TodoList from "./components/TodoList.jsx"
@@ -11,8 +11,20 @@ class Todo{
         this.isCompleted=isCompleted; // true or false
     }
 }
+
+const TODOS_STORAGE_KEY = "todos";
+
 function TodoListApp() {
-    const [todos, setTodos] = useState([]) // Todo 객체들의 배열 (기본값은 빈 배열)
+    const initTodos = () =>{
+        const savedTodos = localStorage.getItem(TODOS_STORAGE_KEY);
+        return(!savedTodos) ? [] : savedTodos; // string -> JSON객체 또는 리스트로 반환
+    }
+
+    const [todos, setTodos] = useState(initTodos) // Todo 객체들의 배열 (기본값은 빈 배열) // 매개변수 함수의 initTodos()와 그냥 함수명 호출의 차이 // todo 변경시 로컬에 저장
+    useEffect(()=>{
+        localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos));
+    }, [todos]);
+
     function addTodo(text){
         //이전 todos에 newTodo 만들어서 추가하자 -> 그것을 setTodos() 하자
         setTodos((todos)=>[
